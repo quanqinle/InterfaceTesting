@@ -22,6 +22,8 @@
 │   └── jtl                               -- 
 │       └── TestReport-201707061055.jtl   -- jtl格式的报告（JMeter执行结果）
 └── testPlan                              -- 
+    ├── expectjson                        -- 
+    │   └── ****.json                     -- http返回，预期值json
     ├── ****.jmx                          -- JMeter脚本
     └── ****.jmx
 ```
@@ -30,8 +32,25 @@
 + JMeter GUI中执行单个jmx用例
 + ant批量执行所有用例 `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`，其中，jmeter.home改成本地JMeter安装路径
 
+
 ## 项目细节介绍
+
+### 项目中的示例 
+example.jmx演示了以下内容：
++ 参数化变量，用于请求、断言
++ 从http的响应中提取所需值，存于变量
++ 两个http间传递参数
++ 相应断言的写法
++ json断言，含如何断言某个http响应（在http请求的“注释”中编写形如`expectjson={demo.json}`）、断言脚本的写法（使用groovy）
++ http代理录制器的配置
+
 ### json断言
 使用了[JsonUnit](https://github.com/lukas-krecan/JsonUnit)，使用方法不再赘述。
 
 ### 其他，待补充
+
+## 我是广告
+
+推荐个最近在用的云服务提供商，质优价廉。好\*梯\*子，每月2.5刀，500G流量，网速够快。  
+[点我！vultr](https://www.vultr.com/?ref=7159348)  
+[![vultr](https://www.vultr.com/media/banner_1.png)](https://www.vultr.com/?ref=7159348)
