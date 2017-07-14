@@ -1,0 +1,36 @@
+{
+    "code": 200,
+    "msg": "OK",
+    "data": {
+        "id": "${json-unit.ignore}",
+        "userid": 888,
+        "publishedtype": 2,
+        "forwardid": null,
+        "question": null,
+        "title": "article title-55130",
+        "top": null,
+        "createtime": "${json-unit.ignore}",
+        "updatetime": "${json-unit.ignore}",
+        "state": 1,
+        "publishedstatus": null,
+        "articlelocation": "${json-unit.ignore}",
+        "abstractContent": "article body",
+        "abstractImgUrl": "",
+        "content": "article body-18617<p><br></p>",
+        "likeCount": 0,
+        "commentCount": 0,
+        "userBaseVo": null,
+        "liked": false,
+        "stick": false,
+        "groupid": 0,
+        "groupname": null,
+        "tagname": [
+            {
+                "id": null,
+                "tabName": "article tag",
+                "create_time": null
+            }
+        ]
+    },
+    "pageInfo": null
+}

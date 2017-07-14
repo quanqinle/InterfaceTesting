@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="ant-jmeter-test" default="all" basedir=".">
+    <tstamp>
+        <format property="time" pattern="yyyyMMddHHmm" />
+    </tstamp>
+    <!-- 需要改成自己本地的 Jmeter 目录-->
+    <property name="jmeter.home" value="D:\app\apache-jmeter-3.2" />
+    <!-- jmeter脚本的路径-->
+    <property name="jmeter.testplan.dir" value="${basedir}\testPlan" />
+    <!-- jmeter生成jtl格式的结果报告的路径-->
+    <property name="jmeter.result.jtl.dir" value="${basedir}\resultLog\jtl" />
+    <!-- jmeter生成html格式的结果报告的路径-->
+    <property name="jmeter.result.html.dir" value="${basedir}\resultLog\html" />
+    <!-- jmeter生成html格式的结果报告的模板-->
+    <property name="jmeter.html.report.template" value="${basedir}\html-report-template.xsl" />
+    <!-- 生成的报告的前缀-->
+    <property name="report.file.name" value="TestReport-${time}" />
+    <property name="jmeter.result.jtlName" value="${jmeter.result.jtl.dir}/${report.file.name}.jtl" />
+    <property name="jmeter.result.htmlName" value="${jmeter.result.html.dir}/${report.file.name}.html" />
+
+    <target name="all">
+        <antcall target="test" />
+        <antcall target="report" />
+    </target>
+
+    <target name="test">
+        <taskdef name="jmeter" classpath="${jmeter.home}\extras\ant-jmeter-1.1.1.jar" classname="org.programmerplanet.ant.taskdefs.jmeter.JMeterTask" />
+        <jmeter jmeterhome="${jmeter.home}" resultlog="${jmeter.result.jtlName}">
+            <!-- 声明要运行的脚本。"*.jmx"指包含此目录下的所有jmeter脚本-->
+            <testplans dir="${jmeter.testplan.dir}" includes="*.jmx" />
+            <!-- 覆盖jmeter.properties中的变量 -->
+            <!-- report task只支持输出报告是xml格式-->
+            <property name="jmeter.save.saveservice.output_format" value="xml"/>
+        </jmeter>
+    </target>
+
+    <path id="xslt.classpath">
+        <fileset dir="${jmeter.home}/lib" includes="xalan*.jar"/>
+        <fileset dir="${jmeter.home}/lib" includes="serializer*.jar"/>
+    </path>
+
+    <target name="report">
+        <tstamp><format property="report.datestamp" pattern="yyyy/MM/dd HH:mm" /></tstamp>
+        <xslt
+            classpathref="xslt.classpath"
+            force="true"
+            in="${jmeter.result.jtlName}"
+            out="${jmeter.result.htmlName}"
+            style="${jmeter.html.report.template}" >
+            <!-- 给xsl格式文件传参，解决报告中特定值显示的问题 -->
+            <param name="showData" expression="n"/>
+            <param name="titleReport" expression="接口测试"/>
+            <param name="dateReport" expression="${report.datestamp}"/>
+        </xslt>
+    </target>
+</project>
