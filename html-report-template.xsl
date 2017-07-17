@@ -64,7 +64,7 @@
 				h2 {
 					margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
 				}
-				h3 {
+				h3,dd {
 					margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
 				}
 				.Failure {
@@ -82,7 +82,7 @@
 					top: 1px;
 					height: 27px;
 				}
-				.page_details
+				.page_details_collapse
 				{
 				   display: none;
 				}
@@ -99,7 +99,7 @@
 				}
 				function collapse(details_id)
 				{
-					document.getElementById(details_id).className = "page_details";
+					document.getElementById(details_id).className = "page_details_collapse";
 				}
 				function change(details_id)
 				{
@@ -110,9 +110,18 @@
 					}
 					else
 					{
-					document.getElementById(details_id+"_td").innerHTML = "+";
-					collapse(details_id);
+						document.getElementById(details_id+"_td").innerHTML = "+";
+						collapse(details_id);
 					} 
+				}
+				function ShowOrHide(id) {
+					if (document.getElementById("LM_" + id).style.display == 'none') {
+						document.getElementById("LM_" + id).style.display = '';
+						document.getElementById("LM_a_" + id).innerHTML = "[Hide detail]";
+					} else {
+						document.getElementById("LM_" + id).style.display = 'none';
+						document.getElementById("LM_a_" + id).innerHTML = "[Show detail]";
+					}
 				}
 			]]></script>
 		</head>
@@ -120,9 +129,9 @@
 			<xsl:call-template name="pageHeader" />
 			<xsl:call-template name="summary" />
 			<hr size="1" width="95%" align="center" />
-			<xsl:call-template name="pagelist" />
-			<hr size="1" width="95%" align="center" />
 			<xsl:call-template name="detail" />
+			<hr size="1" width="95%" align="center" />
+			<xsl:call-template name="pagelist" />
 		</body>
 	</html>
 </xsl:template>
@@ -203,6 +212,8 @@
 
 <xsl:template name="pagelist">
 	<h2>Pages</h2>
+	<a id="LM_a_1" href="javascript:;" onClick="javascript:ShowOrHide(1)">[Hide detail]</a>
+	<dd id="LM_1" style="DISPLAY: display">
 	<table align="center" class="details" border="0" cellpadding="5" cellspacing="2" width="95%">
 		<tr valign="top">
 			<th>URL</th>
@@ -280,7 +291,7 @@
 				</td>
 			</tr>
 			
-			<tr class="page_details">
+			<tr class="page_details_collapse">
 				<xsl:attribute name="id"><xsl:text/>page_details_<xsl:value-of select="position()" /></xsl:attribute>
 				<td colspan="8" bgcolor="#FF0000">
 					<div align="center">
@@ -314,6 +325,8 @@
 			</tr>
 		</xsl:for-each>
 	</table>
+	</dd>
+	
 </xsl:template>
 
 <xsl:template name="detail">
@@ -321,7 +334,9 @@
 
 	<xsl:if test="$allFailureCount > 0">
 		<h2>Failure Detail</h2>
-
+		<a id="LM_a_2" href="javascript:;" onClick="javascript:ShowOrHide(2)">[Hide detail]</a>
+		<dd id="LM_2" style="DISPLAY: display">
+		
 		<xsl:for-each select="/testResults/*[not(@lb = preceding::*/@lb)]">
 
 			<xsl:variable name="failureCount" select="count(../*[@lb = current()/@lb][attribute::s='false'])" />
@@ -352,6 +367,8 @@
 			</xsl:if>
 
 		</xsl:for-each>
+		
+		</dd>
 	</xsl:if>
 </xsl:template>
 
