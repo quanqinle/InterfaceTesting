@@ -28,7 +28,7 @@
 <xsl:output method="html" indent="yes" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" />
 
 <!-- Defined parameters (overrideable) -->
-<xsl:param    name="showData" select="'n'"/>
+<xsl:param    name="showData" select="'y'"/>
 <xsl:param    name="titleReport" select="'Load Test Results'"/>
 <xsl:param    name="dateReport" select="'date not defined'"/>
 
@@ -46,6 +46,8 @@
 				}
 				table tr td, table tr th {
 					font-size: 68%;
+					word-wrap:break-word;
+					word-break:break-all;
 				}
 				table.details tr th{
 					color: #ffffff;
@@ -56,7 +58,6 @@
 				}
 				table.details tr td{
 					background:#eeeee0;
-					white-space: nowrap;
 				}
 				h1 {
 					margin: 0px 0px 5px; font: 165% verdana,arial,helvetica

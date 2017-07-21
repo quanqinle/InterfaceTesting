@@ -31,6 +31,7 @@
             <!-- 覆盖jmeter.properties中的变量 -->
             <!-- report task只支持输出报告是xml格式-->
             <property name="jmeter.save.saveservice.output_format" value="xml"/>
+            <property name="jmeter.save.saveservice.response_data.on_error" value="true"/>
         </jmeter>
     </target>
 
@@ -48,7 +49,7 @@
             out="${jmeter.result.htmlName}"
             style="${jmeter.html.report.template}" >
             <!-- 给xsl格式文件传参，解决报告中特定值显示的问题 -->
-            <param name="showData" expression="n"/>
+            <param name="showData" expression="y"/>
             <param name="titleReport" expression="接口测试"/>
             <param name="dateReport" expression="${report.datestamp}"/>
         </xslt>
