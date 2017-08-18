@@ -359,7 +359,7 @@
 						<td><xsl:value-of select="@rc | @rs" /> - <xsl:value-of select="@rm" /></td>
 						<td><xsl:value-of select="assertionResult/failureMessage" /></td>
 						<xsl:if test="$showData = 'y'">
-							<td><xsl:value-of select="./binary" /></td>
+							<td><xsl:value-of select="responseData" /></td>
 						</xsl:if>
 					</tr>
 				</xsl:for-each>
