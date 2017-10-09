@@ -36,13 +36,21 @@
 ## 项目细节介绍
 
 ### 项目中的示例 
-example.jmx演示了以下内容：
+1. example_login-with-toke.jmx演示了以下内容：
 + 参数化变量，用于请求、断言
 + 从http的响应中提取所需值，存于变量
 + 两个http间传递参数
 + 相应断言的写法
 + json断言，含如何断言某个http响应（在http请求的“注释”中编写形如`expectjson={demo.json}`）、断言脚本的写法（使用groovy）
-+ http代理录制器的配置
++ http代理录制器的配置    
+
+2. example_login-with-toke.jmx演示以下内容：
+
++ 从登录ap的Response中提取token信息
+
++ 后续api的Http头信息中使用该token信息
+
+
 
 ### json断言
 使用了[JsonUnit](https://github.com/lukas-krecan/JsonUnit)，使用方法不再赘述。
