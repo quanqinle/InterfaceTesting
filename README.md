@@ -63,9 +63,3 @@
 另有《Web UI自动化测试：Selenium进阶》课程正在筹备中，敬请期待...
 
 以后有精力也有可能准备其他的课程，如接口测试、单元测试、持续集成。
-
-## 梯子推荐
-
-推荐个最近在用的云服务提供商，质优价廉。好\*梯\*子，每月2.5刀，500G流量，网速够快。  
-[点我！vultr](https://www.vultr.com/?ref=7159348)  
-[![vultr](https://www.vultr.com/media/banner_1.png)](https://www.vultr.com/?ref=7159348)
