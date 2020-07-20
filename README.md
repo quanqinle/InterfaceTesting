@@ -19,7 +19,7 @@ The purpose of this project is to help you automate Web API testing, such as HTT
 # Project Structure
 
 ```
-├── build.xml                             -- ant script
+├── build.xml                             -- Ant script
 ├── html-report-template.xsl              -- html template
 ├── README.md                             -- 
 ├── resultLog                             -- 
@@ -55,7 +55,6 @@ The purpose of this project is to help you automate Web API testing, such as HTT
 2. `example_login-with-toke.jmx` demonstrates the contents:
     + extract token from Response in API
     + use the above token in the Header of subsequent Resquest
-
 
 ## JSON assertion
 Based on [JsonUnit](https://github.com/lukas-krecan/JsonUnit), there are lots of useful tools in it. For more information, check out the website.

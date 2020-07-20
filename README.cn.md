@@ -2,12 +2,12 @@
 
 [TOC]
 
-本工程的目的是对HTTP接口进行自动化测试，借助JMeter录制、编辑、组织。使用ant脚本完成批量脚本执行，以及html格式报告输出。可以和jenkins结合完成自动化接口测试。
+本工程的目的是对HTTP接口进行自动化测试，借助JMeter录制、编辑、组织。使用Ant脚本完成批量脚本执行，以及html格式报告输出。可以和jenkins结合完成自动化接口测试。
 
 
 # 项目概况
 + 使用JMeter进行http请求录制、用例编写与组织，执行结果检查（断言）
-+ 使用ant运行用例，生成html报告
++ 使用Ant运行用例，生成html报告
 + html报告模板基于`${jmeter.home}\extras\jmeter-results-detail-report_21.xsl`改写
 + 用例中的断言除了使用“响应断言”外，还通过groovy脚本实现了json断言，由此需要将下面的jar包放在`${jmeterhome}/lib/ext/`下。jar包搜索、下载地址 [https://www.mvnrepository.com](https://www.mvnrepository.com)
     > json-unit-core-\*.jar  
@@ -34,13 +34,13 @@
 
 # 执行用例
 + JMeter GUI中执行单个jmx用例
-+ ant批量执行所有用例 `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`，其中，jmeter.home改成本地JMeter安装路径
++ Ant批量执行所有用例 `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`，其中，jmeter.home改成本地JMeter安装路径
 
 
 # 项目细节介绍
 
 ## 项目中的示例
-1. example_login-with-toke.jmx 演示了以下内容：
+1. `example_login-with-toke.jmx` 演示了以下内容：
     + 参数化变量，用于请求、断言
     + 从http的响应中提取所需值，存于变量
     + 两个http间传递参数
@@ -48,7 +48,7 @@
     + json断言，含如何断言某个http响应（在http请求的“注释”中编写形如`expectjson={demo.json}`）、断言脚本的写法（使用groovy）
     + http代理录制器的配置
 
-2. example_login-with-toke.jmx 演示以下内容：
+2. `example_login-with-toke.jmx` 演示以下内容：
     + 从登录api的Response中提取token信息
     + 后续api的Http头信息中使用该token信息
 
