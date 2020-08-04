@@ -9,7 +9,7 @@
 + 使用JMeter进行http请求录制、用例编写与组织，执行结果检查（断言）
 + 使用Ant运行用例，生成html报告
 + html报告模板基于`${jmeter.home}\extras\jmeter-results-detail-report_21.xsl`改写
-+ 用例中的断言除了使用“响应断言”外，还通过groovy脚本实现了json断言，由此需要将下面的jar包放在`${jmeterhome}/lib/ext/`下。jar包搜索、下载地址 [https://www.mvnrepository.com](https://www.mvnrepository.com)
++ 用例中的断言除了使用“响应断言”外，还通过groovy脚本实现了JSON Schema断言，由此需要将下面的jar包放在`${jmeterhome}/lib/ext/`下。jar包搜索、下载地址 [https://www.mvnrepository.com](https://www.mvnrepository.com)
     > json-unit-core-\*.jar  
     > json-unit-\*.jar  
     > gson-\*.jar
@@ -33,8 +33,11 @@
 ```
 
 # 执行用例
+
+![JMeter main GUI](doc/JMeter main GUI.png)
+
 + JMeter GUI中执行单个jmx用例
-+ Ant批量执行所有用例 `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`，其中，jmeter.home改成本地JMeter安装路径
++ Ant批量执行所有用例。在项目根目录下，执行命令 `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`，其中，jmeter.home改成本地JMeter安装路径
 
 
 # 项目细节介绍
@@ -53,8 +56,10 @@
     + 后续api的Http头信息中使用该token信息
 
 
-## json断言
+## JSON Schema断言
+
 使用了[JsonUnit](https://github.com/lukas-krecan/JsonUnit)，使用方法不再赘述。
+![JSON Schema Assertion](doc/JSON Schema Assertion.png)
 
 ## 其他，待补充
 
