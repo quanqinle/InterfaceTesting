@@ -37,7 +37,7 @@ The purpose of this project is to help you automate Web API testing, such as HTT
 
 # Run test cast
 
-![JMeter main GUI](/doc/JMeter main GUI.png)
+![JMeter main GUI](/doc/JMeter-main-GUI.png)
 
 + Method 1: Run a single JMX test case in the JMeter GUI
 + Method 2: Use Ant to run all cases in batch. In the project root directory, run the command `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`, note that change the value of jmeter.home to your local install path of JMeter
@@ -64,6 +64,6 @@ The purpose of this project is to help you automate Web API testing, such as HTT
 
 `JSON Schema assertion` is written in Groovy language. 
 
-![JSON Schema Assertion](/doc/JSON Schema Assertion.png)
+![JSON Schema Assertion](/doc/JSON-Schema-Assertion.png)
 
 Based on [JsonUnit](https://github.com/lukas-krecan/JsonUnit), there are lots of useful tools in it. See the website for more information.
