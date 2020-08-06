@@ -34,7 +34,7 @@
 
 # 执行用例
 
-![JMeter main GUI](doc/JMeter main GUI.png)
+![JMeter main GUI](/doc/JMeter main GUI.png)
 
 + JMeter GUI中执行单个jmx用例
 + Ant批量执行所有用例。在项目根目录下，执行命令 `ant -Djmeter.home="/usr/local/apache-jmeter-3.2"`，其中，jmeter.home改成本地JMeter安装路径
@@ -59,7 +59,7 @@
 ## JSON Schema断言
 
 使用了[JsonUnit](https://github.com/lukas-krecan/JsonUnit)，使用方法不再赘述。
-![JSON Schema Assertion](doc/JSON Schema Assertion.png)
+![JSON Schema Assertion](/doc/JSON Schema Assertion.png)
 
 ## 其他，待补充
 
